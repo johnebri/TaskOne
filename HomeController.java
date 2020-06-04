@@ -35,8 +35,8 @@ public class HomeController {
 		return data;	
 	}
 	
-	// list of most active authors
-	public List<String> getUsernames(int threshold) {
+	// 1. list of most active authors
+	public static List<String> getUsernames(int threshold) {
 		
 		// get all data from service
 		List<Data> data = getAllDataFromService();
@@ -51,7 +51,8 @@ public class HomeController {
 		return qualifiedUsers;
 	}
 	
-	public Data getUsernameWithHighestCommentCount() {
+	// 2. The author with the highest comment count.
+	public static String getUsernameWithHighestCommentCount() {
 		
 		// get all data from service
 		List<Data> data = getAllDataFromService();		
@@ -70,10 +71,11 @@ public class HomeController {
         }
 		
 		// return the user with highest comment
-		return data.get(0);
+		return data.get(0).getUsername();
 	}
 	
-	public List<String> getUsernamesSortedByRecordDate(int threshold) {
+	// 3. The list of the authors sorted by when their record was created according to a set threshold.
+	public static List<String> getUsernamesSortedByRecordDate(int threshold) {
 		
 		// get all data from service
 		List<Data> data = getAllDataFromService();	
